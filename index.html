@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Serverless Practical</title>
+</head>
+<body>
+  <h1>Netlify Functions Demo</h1>
+  <button onclick="greet()">Click Me</button>
+  <p id="result"></p>
+
+  <script>
+    async function greet() {
+      const response = await fetch('/.netlify/functions/greet');
+      const data = await response.json();
+      document.getElementById('result').textContent = data.message;
+    }
+  </script>
+</body>
+</html>
